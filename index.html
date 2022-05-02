@@ -1,32 +1,45 @@
 <!DOCTYPE html>
+
 <html>
-  <head>
-    <title> Chatplat </title>
+  <title> Survey </title>
+  <body>
+    <iframe id="qualtrics"></iframe>
     <style>
-      #scaled-frame {
-        position : absolute;
-        top      : 0;
-        right    : 0;
-        height   : 100%;
-        width    : 30%;
+      #qualtrics {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 70%;
       }
     </style>
-  </head>
-  <body>
-      <iframe id="scaled-frame" src="https://chatplat.com/#/Chat/5550/hfHTpS5BF02X7aV"></iframe>    
-        <title> Survey</title>
-    <style>
-      #scaled-frame2 {
-        position : absolute;
-        top      : 0;
-        left    : 0;
-        height   : 100%;
-        width    : 70%;
-      }
-    </style>
-  </head>
-  <body>
-      <iframe id="scaled-frame2" src="https://berkeley.qualtrics.com/jfe/form/SV_1zzOawQkxThMCeW"></iframe>    
     
-  </body>
+    <iframe id="chat_plat" ></iframe>
+      <style>
+        #chat_plat {
+        position: absolute;
+        top: 0;
+        right: 0;
+        height: 100%;
+        width: 30%;
+      }
+    </style>
+ </body>
+ 
+   <script>
+    function randomString(length, chars) {
+      var result = '';
+      for (var i = length; i > 0; --i) result += chars[Math.round(Math.random() * (chars.length - 1))];
+      return result;
+    }
+    let random_string = randomString(5, '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ');
+    let chat_plat_url = "https://chatplat.com/#/Chat/5550/hfHTpS5BF02X7aV//" + random_string
+    let qualtrics_url = "https://berkeley.qualtrics.com/jfe/form/SV_1zzOawQkxThMCeW?url_identifier=" + random_string
+    let chat_plat = document.getElementById("chat_plat");
+    let qualtrics = document.getElementById("qualtrics");
+		chat_plat.src = chat_plat_url;
+    qualtrics.src = qualtrics_url;
+    console.log(chat_plat_url);
+  </script>
+  
 </html>
